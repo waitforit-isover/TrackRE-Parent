@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#3F51B5</color>
+    <color name="color_primary_dark">#303F9F</color>
+    <color name="color_primary_light">#C5CAE9</color>
+    <color name="activity_main_row_title_color">#cccccc</color>
+
+    <color name="cyan">#00FFFF</color>
+    <color name="gray">#bdbdbd</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#0000ff</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Login Screens-->
+    <color name="login_text">@color/white</color>
+    <color name="login_et_hint">@color/blue</color>
+    <color name="login_hint">@color/blue</color>
+    <color name="background_login_fragment">#E6F6F5EF</color>
+    <color name="login_forward_button">#2B88D9</color>
+    <color name="login_message">#898783</color>
+    <color name="login_title">#ff4f4f4f</color>
+</resources>
