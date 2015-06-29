@@ -41,6 +41,7 @@ dependencies {
     compile 'fr.baloomba:viewpagerindicator:2.4.2'
     compile 'tk.zielony:carbon:0.6.0'
     compile 'com.joooonho:selectableroundedimageview:1.0.1'
+    compile 'com.joanzapata.android:android-iconify:1.0.9'
 }
 
 apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'

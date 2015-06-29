@@ -16,6 +16,7 @@ import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemDivide
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemHeader;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemTopFragment;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemTopIntent;
+import com.joanzapata.android.iconify.Iconify;
 
 import java.util.List;
 
@@ -23,11 +24,8 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
 
     private int mLayoutResourceId;
 
-    public NavigationDrawerAdapter(Context context,
-                                   int layoutResourceId,
-                                   List<ListItem> objects) {
+    public NavigationDrawerAdapter(Context context, int layoutResourceId, List<ListItem> objects) {
         super(context, layoutResourceId, objects);
-
         mLayoutResourceId = layoutResourceId;
     }
 
@@ -65,12 +63,9 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
             }
             holder = new ViewHolder();
             holder.title = (TextView) convertView.findViewById(R.id.navigation_drawer_row_title);
-            holder.titleHeader = (TextView) convertView
-                    .findViewById(R.id.navigation_drawer_row_header);
-            holder.icon = (ImageView) convertView
-                    .findViewById(R.id.navigation_drawer_row_icon);
-            holder.headerSeparator = convertView
-                    .findViewById(R.id.navigation_drawer_row_header_separator);
+            holder.titleHeader = (TextView) convertView.findViewById(R.id.navigation_drawer_row_header);
+            holder.icon = (ImageView) convertView.findViewById(R.id.navigation_drawer_row_icon);
+            holder.headerSeparator = convertView.findViewById(R.id.navigation_drawer_row_header_separator);
             convertView.setTag(holder);
         } else holder = (ViewHolder) convertView.getTag();
 
@@ -78,6 +73,9 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
             try {
                 holder.title.setText(item.getTitle());
                 holder.titleHeader.setText(item.getTitle());
+                // TODO Add Iconify
+                Iconify.addIcons(holder.title);
+                Iconify.addIcons(holder.titleHeader);
             } catch (Resources.NotFoundException e) {
                 holder.title.setText("");
                 holder.titleHeader.setText("");

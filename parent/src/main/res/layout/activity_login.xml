@@ -27,4 +27,5 @@
         android:layout_height="48dp"
         android:visibility="gone"
         android:layout_gravity="bottom"/>
+
 </LinearLayout>

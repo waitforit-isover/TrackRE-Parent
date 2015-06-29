@@ -33,7 +33,7 @@ public class Register1Fragment extends Fragment implements View.OnClickListener{
             case R.id.login_continue:
                 Register2Fragment fragment = new Register2Fragment();
                 this.getFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
+                        .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)//,R.anim.enter_from_left, R.anim.exit_to_right)
                         .replace(R.id.login_fragment_container, fragment)
                         .addToBackStack(null)
                         .commit();

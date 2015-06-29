@@ -1,11 +1,13 @@
 package com.sevenre.trackre.parent.activity;
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -27,6 +29,8 @@ public class LoginActivity extends ActionBarActivity {
         LoginFragment fragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.login_fragment_container,fragment).commit();
         mSnackBar = (SnackBar)findViewById(R.id.login_snackbar);
+//        TextView tv = (TextView)findViewById(R.id.textView4);
+//        tv.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/roboto.ttf"));
     }
 
     @Override

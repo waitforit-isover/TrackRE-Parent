@@ -12,6 +12,8 @@ import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerAccountsMenu
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerBottomHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerTopHandler;
 import com.rey.material.widget.SnackBar;
+import com.sevenre.trackre.parent.fragment.AddMobileFragment;
+import com.sevenre.trackre.parent.fragment.ExploreRoutesFragment;
 import com.sevenre.trackre.parent.fragment.HomeFragment;
 import com.sevenre.trackre.parent.fragment.LoginFragment;
 import com.sevenre.trackre.parent.fragment.LogoutFragment;
@@ -28,7 +30,6 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -51,14 +52,12 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
     @Override
     public NavigationDrawerTopHandler getNavigationDrawerTopHandler() {
         return new NavigationDrawerTopHandler(this)
-                .addItem("Home", new HomeFragment())
-                .addItem(R.string.notification, new NotificationFragment())
-                .addItem(R.string.simply_track, new SimplyTrackVerificationFragment())
-                .addItem(R.string.add_phone_no, new NotificationFragment())
-                .addItem(R.string.notification, new NotificationFragment())
-                .addItem(R.string.logout, new LogoutFragment())
-                .addItem(R.string.tracking, new TrackingFragment())
-                .addItem("Login", new LoginFragment());
+                .addItem(R.string.nav_home, new HomeFragment())
+                .addItem(R.string.nav_notification, new NotificationFragment())
+                .addItem(R.string.nav_routes, new ExploreRoutesFragment())
+                .addItem(R.string.nav_simply_track, new SimplyTrackVerificationFragment())
+                .addItem(R.string.nav_add_phone, new AddMobileFragment())
+                .addItem(R.string.nav_logout, new LogoutFragment());
 
     }
 

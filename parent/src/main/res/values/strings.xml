@@ -5,10 +5,18 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Navigation list-->
+    <string name="nav_home">\uf015  Home</string>
+    <string name="nav_notification">\uf0a2  Notification</string>
+    <string name="nav_simply_track">\uf041  Simply Track</string>
+    <string name="nav_add_phone">\uf095  Add Mobile</string>
+    <string name="nav_routes">\uf018  Routes</string>
+    <string name="nav_logout">\uf09c  Logout</string>
+
+
+    <!-- end list -->
     <string name="overview">Overview</string>
     <string name="notification">Notification</string>
     <string name="add_phone_no">Add Phone Number</string>
@@ -16,6 +24,7 @@
     <string name="simply_track">Simply Track</string>
     <string name="logout">Logout</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="home">Home</string>
 
     <!-- Tabs -->
     <string name="children">Children</string>

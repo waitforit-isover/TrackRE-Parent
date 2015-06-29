@@ -38,7 +38,7 @@ android {
 
 dependencies {
     compile project(':library')
-
+    compile files('libs/android-iconify-1.0.9.jar')
     compile 'com.github.rey5137:material:1.1.1'
     compile 'com.android.support:design:22.2.0'
     compile 'com.android.support:recyclerview-v7:22.2.0'
@@ -48,4 +48,6 @@ dependencies {
     compile 'com.daimajia.swipelayout:library:1.2.0@aar'
     compile 'com.google.android.gms:play-services:7.5.0'
 }
+
+
 

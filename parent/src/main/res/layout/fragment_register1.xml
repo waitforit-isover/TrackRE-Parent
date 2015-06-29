@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="@string/continue_"
         android:textColor="@color/white"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         style="@style/Material.Drawable.Ripple.Wave.Light"
         android:background="@color/login_forward_button"
         android:layout_marginTop="@dimen/margin_login_forward_button"/>

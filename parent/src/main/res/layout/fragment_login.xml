@@ -42,7 +42,8 @@
         android:background="@color/white"
         android:id="@+id/login_phone"
         android:padding="@dimen/padding_login_edit_text"
-        android:layout_marginBottom="@dimen/margin_login_input_field"/>
+        android:layout_marginBottom="@dimen/margin_login_input_field"
+        android:gravity="center"/>
 
     <EditText
         android:layout_width="fill_parent"
@@ -52,7 +53,8 @@
         android:padding="@dimen/padding_login_edit_text"
         android:hint="@string/password"
         android:id="@+id/login_password"
-        android:background="@color/white" />
+        android:background="@color/white"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/login_forget_password"
@@ -102,5 +104,7 @@
             android:layout_weight="1"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Button"
             style="@style/Material.Drawable.Ripple.Wave.Light" />
+
     </LinearLayout>
+
 </LinearLayout>
