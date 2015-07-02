@@ -21,7 +21,7 @@
     <style name="AppTheme.SnackBarSingleLine" parent="Material.Widget.SnackBar.Mobile">
         <item name="sb_text">This is single-line snackbar.</item>
         <item name="sb_actionText">CLOSE</item>
-        <item name="sb_duration">0</item>
+        <item name="sb_duration">5000</item>
     </style>
 
     <style name="AppTheme.MenuItemRippleStyle" parent="Material.Drawable.Ripple.Wave">

@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:background="@drawable/login_background">
 
+
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,18 +16,23 @@
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"/>
 
-    <FrameLayout
-        android:id="@+id/login_fragment_container"
+
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_margin="20dp"
-        android:tag="login_fragment"/>
+        android:layout_height="fill_parent">
 
-    <com.rey.material.widget.SnackBar
-        android:id="@+id/login_snackbar"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:visibility="gone"
-        android:layout_gravity="bottom"/>
+        <FrameLayout
+            android:id="@+id/login_fragment_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="20dp"
+            android:tag="login_fragment"/>
 
+        <com.rey.material.widget.SnackBar
+            android:id="@+id/login_snackbar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:visibility="gone"
+            android:layout_gravity="bottom"/>
+    </RelativeLayout>
 </LinearLayout>

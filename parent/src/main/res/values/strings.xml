@@ -55,4 +55,8 @@
         sending the fetched token to the server or subscribing to the PubSub topic. Please try
         running the sample again.</string>
 
+    <!-- Messages -->
+    <string name="login_wrong_password">Wrong password</string>
+    <string name="login_authenticating_user">Authenticating user</string>
+
 </resources>
