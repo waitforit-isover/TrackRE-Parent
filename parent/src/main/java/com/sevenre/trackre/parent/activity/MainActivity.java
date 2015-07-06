@@ -1,15 +1,8 @@
 package com.sevenre.trackre.parent.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.IconTextView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.blunderer.materialdesignlibrary.models.Account;
 import com.blunderer.materialdesignlibrary.handlers.ActionBarDefaultHandler;
@@ -23,13 +16,12 @@ import com.rey.material.widget.SnackBar;
 import com.sevenre.trackre.parent.fragment.AddMobileFragment;
 import com.sevenre.trackre.parent.fragment.ExploreRoutesFragment;
 import com.sevenre.trackre.parent.fragment.HomeFragment;
-import com.sevenre.trackre.parent.fragment.LoginFragment;
 import com.sevenre.trackre.parent.fragment.LogoutFragment;
 import com.sevenre.trackre.parent.fragment.NotificationFragment;
+import com.sevenre.trackre.parent.fragment.SetUpChildStopFragment;
+import com.sevenre.trackre.parent.fragment.SimplyTrackVerificationFragment;
 
 import com.sevenre.trackre.parent.R;
-import com.sevenre.trackre.parent.fragment.SimplyTrackVerificationFragment;
-import com.sevenre.trackre.parent.fragment.TrackingFragment;
 
 public class MainActivity extends com.blunderer.materialdesignlibrary.activities.NavigationDrawerActivity {
 
@@ -65,8 +57,9 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
                 .addItem(R.string.notification, Iconify.IconValue.fa_bell_o, new NotificationFragment())
                 .addItem(R.string.routes, Iconify.IconValue.fa_road, new ExploreRoutesFragment())
                 .addItem(R.string.simply_track, Iconify.IconValue.fa_map_marker,new SimplyTrackVerificationFragment())
+                .addItem("Set Up", new SetUpChildStopFragment())
                 .addItem(R.string.add_phone_no, Iconify.IconValue.fa_phone, new AddMobileFragment())
-                .addItem(R.string.logout, Iconify.IconValue.fa_unlock,new LogoutFragment());
+                .addItem(R.string.logout, Iconify.IconValue.fa_unlock, new LogoutFragment());
 
     }
 

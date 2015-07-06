@@ -2,9 +2,14 @@ package com.sevenre.trackre.parent.datatypes;
 
 public class Stop {
 
-    String name, time, lat, lng, isArrived;
+    String name, time, lat, lng, isArrived, id;
 
     public Stop(){}
+
+    public Stop(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -45,4 +50,6 @@ public class Stop {
     public void setIsArrived(String isArrived) {
         this.isArrived = isArrived;
     }
+
+
 }

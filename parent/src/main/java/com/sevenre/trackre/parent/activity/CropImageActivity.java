@@ -25,7 +25,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.sevenre.trackre.parent.R;
 
 public class CropImageActivity extends ActionBarActivity {

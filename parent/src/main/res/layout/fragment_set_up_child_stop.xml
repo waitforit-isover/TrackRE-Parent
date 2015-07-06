@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sevenre.trackre.parent.fragment.SetUpChildStopFragment">
+
+    <ListView
+        android:id="@+id/list_view_set_up_child_stop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="15dp"
+        android:divider="@color/transparent"
+        android:dividerHeight="15dp">
+    </ListView>
+
+    <com.rey.material.widget.SnackBar
+        android:id="@+id/login_snackbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>

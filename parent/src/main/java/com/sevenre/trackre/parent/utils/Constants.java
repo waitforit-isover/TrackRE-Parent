@@ -15,4 +15,7 @@ public class Constants {
     //Shared Preference
     public static String PREFERENCE = "com.sevenre.trackre.parentre.pref";
     public static enum PREF {SCHOOL_ID, PARENT_MOBILE_NO}
+
+    public static final int DROP = 1;
+    public static final int PICKUP = 2;
 }
