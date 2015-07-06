@@ -16,6 +16,7 @@ import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemDivide
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemHeader;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemTopFragment;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemTopIntent;
+import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
 
 import java.util.List;
@@ -52,13 +53,8 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
         ListItem item = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater
-                    .from(getContext())
-                    .inflate(mLayoutResourceId, parent, false);
-
-            if (item instanceof NavigationDrawerListItemTopFragment ||
-                    item instanceof NavigationDrawerListItemTopIntent ||
-                    item instanceof NavigationDrawerListItemBottom) {
+            convertView = LayoutInflater.from(getContext()).inflate(mLayoutResourceId, parent, false);
+            if (item instanceof NavigationDrawerListItemTopFragment || item instanceof NavigationDrawerListItemTopIntent || item instanceof NavigationDrawerListItemBottom) {
                 convertView.setBackgroundResource(R.drawable.navigation_drawer_selector);
             }
             holder = new ViewHolder();
@@ -67,13 +63,13 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
             holder.icon = (ImageView) convertView.findViewById(R.id.navigation_drawer_row_icon);
             holder.headerSeparator = convertView.findViewById(R.id.navigation_drawer_row_header_separator);
             convertView.setTag(holder);
-        } else holder = (ViewHolder) convertView.getTag();
+        } else
+            holder = (ViewHolder) convertView.getTag();
 
         if (item.useTitleResource()) {
             try {
                 holder.title.setText(item.getTitle());
                 holder.titleHeader.setText(item.getTitle());
-                // TODO Add Iconify
                 Iconify.addIcons(holder.title);
                 Iconify.addIcons(holder.titleHeader);
             } catch (Resources.NotFoundException e) {
@@ -83,22 +79,27 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
         }
 
         if (item instanceof NavigationDrawerListItemTopFragment) {
-            NavigationDrawerListItemTopFragment itemNormal =
-                    (NavigationDrawerListItemTopFragment) item;
+            NavigationDrawerListItemTopFragment itemNormal = (NavigationDrawerListItemTopFragment) item;
             holder.title.setVisibility(View.VISIBLE);
             holder.titleHeader.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(View.GONE);
             if (itemNormal.useIconResource()) {
                 try {
-                    holder.icon.setImageDrawable(itemNormal.getIcon());
-                    holder.icon.setVisibility(View.VISIBLE);
+                    //ToDo change here for iconfiy icon
+                    if (itemNormal.useIconify()) {
+                        IconDrawable icon = new IconDrawable(getContext(), itemNormal.getIconify());
+                        holder.icon.setImageDrawable(icon);
+                        holder.icon.setVisibility(View.VISIBLE);
+                    } else {
+                        holder.icon.setImageDrawable(itemNormal.getIcon());
+                        holder.icon.setVisibility(View.VISIBLE);
+                    }
                 } catch (Resources.NotFoundException e) {
                     holder.icon.setVisibility(View.GONE);
                 }
             }
         } else if (item instanceof NavigationDrawerListItemTopIntent) {
-            NavigationDrawerListItemTopIntent itemNormal =
-                    (NavigationDrawerListItemTopIntent) item;
+            NavigationDrawerListItemTopIntent itemNormal = (NavigationDrawerListItemTopIntent) item;
             holder.title.setVisibility(View.VISIBLE);
             holder.titleHeader.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(View.GONE);
@@ -123,10 +124,8 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
             holder.icon.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(View.VISIBLE);
         }
-
         return convertView;
     }
-
     private class ViewHolder {
 
         private TextView title;
@@ -135,5 +134,4 @@ public class NavigationDrawerAdapter extends ArrayAdapter<ListItem> {
         private View headerSeparator;
 
     }
-
 }

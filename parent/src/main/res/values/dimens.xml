@@ -25,5 +25,5 @@
     <!-- Login -->
     <dimen name="padding_login_edit_text">10dp</dimen>
     <dimen name="margin_login_input_field">5dp</dimen>
-    <dimen name="margin_login_forward_button">10dp</dimen>
+    <dimen name="margin_login_forward_button">20dp</dimen>
 </resources>

@@ -57,8 +57,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 String id = ((TextView)view.findViewById(R.id.login_phone)).getText().toString();
                 String password = ((TextView)view.findViewById(R.id.login_password)).getText().toString();
                 new Login().execute(id,password);
-
-
                 break;
             case R.id.login_register:
                 fragment = new Register1Fragment();
@@ -94,6 +92,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         @Override
         protected void onPostExecute(ServerResult login) {
             super.onPostExecute(login);
+            if(progressDialog.isShowing())
+                progressDialog.dismiss();
+
             if (login.isAuthentic()) {
                 LoginFragment.this.startActivity(new Intent(getActivity(), MainActivity.class));
                 LoginFragment.this.getActivity().finish();

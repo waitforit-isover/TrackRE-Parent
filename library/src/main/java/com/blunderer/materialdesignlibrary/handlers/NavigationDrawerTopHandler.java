@@ -10,6 +10,7 @@ import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemDivide
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemHeader;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemTopFragment;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemTopIntent;
+import com.joanzapata.android.iconify.Iconify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,15 @@ public class NavigationDrawerTopHandler {
         NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
         item.setTitle(mContext, titleResource);
         item.setFragment(fragment);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(int titleResource, Iconify.IconValue iconify, Fragment fragment) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(mContext, titleResource);
+        item.setFragment(fragment);
+        item.setIcon(iconify);
         mItems.add(item);
         return this;
     }

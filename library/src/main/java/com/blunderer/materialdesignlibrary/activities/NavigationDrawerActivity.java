@@ -39,8 +39,7 @@ import com.blunderer.materialdesignlibrary.views.ToolbarSearch;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NavigationDrawerActivity extends AActivity
-        implements NavigationDrawer, OnAccountChangeListener {
+public abstract class NavigationDrawerActivity extends AActivity implements NavigationDrawer, OnAccountChangeListener {
 
     protected DrawerLayout mDrawerLayout;
     protected ActionBarDrawerToggle mDrawerToggle;
@@ -60,7 +59,6 @@ public abstract class NavigationDrawerActivity extends AActivity
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
@@ -123,7 +121,8 @@ public abstract class NavigationDrawerActivity extends AActivity
                 R.layout.mdl_activity_navigation_drawer_full
                 : R.layout.mdl_activity_navigation_drawer);
 
-        if (savedInstanceState != null) mAccountsPositions = savedInstanceState.getIntArray("cc");
+        if (savedInstanceState != null)
+            mAccountsPositions = savedInstanceState.getIntArray("cc");
 
         defineDrawerLayout();
         defineListTop();
@@ -229,7 +228,8 @@ public abstract class NavigationDrawerActivity extends AActivity
         if (savedInstanceState != null) {
             isSavedInstanceState = true;
             fragmentPosition = savedInstanceState.getInt("current_fragment_position", 0);
-        } else fragmentPosition = defaultNavigationDrawerItemSelectedPosition();
+        } else
+            fragmentPosition = defaultNavigationDrawerItemSelectedPosition();
 
         replaceTopItems(getNavigationDrawerTopHandler());
         replaceBottomItems(getNavigationDrawerBottomHandler());
@@ -333,8 +333,7 @@ public abstract class NavigationDrawerActivity extends AActivity
                     (NavigationDrawerListItemTopFragment) item;
             Fragment fragment = itemFragment.getFragment();
             if (mCurrentItem == null || mCurrentItem.getFragment() != fragment) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, fragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                 mCurrentItem = itemFragment;
                 mCurrentItemPosition = i;
             }
@@ -347,8 +346,7 @@ public abstract class NavigationDrawerActivity extends AActivity
         } else if (item instanceof NavigationDrawerAccountsListItemIntent) {
             startActivity(((NavigationDrawerAccountsListItemIntent) item).getIntent());
         } else if (item instanceof NavigationDrawerAccountsListItemOnClick) {
-            View.OnClickListener onClickListener = ((NavigationDrawerAccountsListItemOnClick) item)
-                    .getOnClickListener();
+            View.OnClickListener onClickListener = ((NavigationDrawerAccountsListItemOnClick) item).getOnClickListener();
 
             if (onClickListener != null) onClickListener.onClick(view);
         } else if (item instanceof NavigationDrawerAccountsListItemAccount) {

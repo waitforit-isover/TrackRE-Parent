@@ -1,18 +1,35 @@
 package com.sevenre.trackre.parent.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.net.Uri;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sevenre.trackre.parent.R;
+import com.sevenre.trackre.parent.activity.CropImageActivity;
 import com.sevenre.trackre.parent.datatypes.Child;
+import com.sevenre.trackre.parent.utils.ImageConvert;
+import com.sevenre.trackre.parent.utils.Intents;
 import com.sevenre.trackre.parent.views.animation.DropDownAnim;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,16 +39,19 @@ public class ChildrenAdapter extends BaseAdapter {
     Context mContext;
     LayoutInflater inflater;
 
+    private static int REQUEST_PICTURE = 1;
+    private static int REQUEST_CROP_PICTURE = 2;
+
     public ChildrenAdapter() {
         data = new ArrayList<>();
-        data.add(new Child("Ted", "Mosby","DPS, Delhi"));
-        data.add(new Child("Marshal", "Ericsson","NYC High School"));
+        data.add(new Child("1","Ted", "Mosby","DPS, Delhi"));
+        data.add(new Child("2","Marshal", "Ericsson","NYC High School"));
     }
 
     public ChildrenAdapter(Context context) {
         data = new ArrayList<>();
-        data.add(new Child("Ted", "Mosby","DPS, Delhi"));
-        data.add(new Child("Marshal", "Ericson","NYC High School"));
+        data.add(new Child("1","Ted", "Mosby","DPS, Delhi"));
+        data.add(new Child("2","Marshal", "Ericsson","NYC High School"));
         mContext = context;
     }
 
@@ -57,20 +77,31 @@ public class ChildrenAdapter extends BaseAdapter {
         TextView school = (TextView) view.findViewById(R.id.child_school);
         name.setText(data.get(position).getFirstName() + " " + data.get(position).getLastName());
         school.setText(data.get(position).getSchool());
-        //hideDetails(view.findViewById(R.id.list_item_detail_view));
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (data.get(position).isDetailView()) {
-                    hideDetails(view.findViewById(R.id.list_item_detail_view));
-                    data.get(position).setIsDetailView(false);
-                } else {
-                    showDetails(view.findViewById(R.id.list_item_detail_view));
-                    data.get(position).setIsDetailView(true);
-                }
 
+        ImageView photo = (ImageView)view.findViewById(R.id.child_image);
+        try {
+            File f = new File(Environment.getExternalStorageDirectory() + File.separator + data.get(position).getId() + "sevenre.jpg" );
+            if (f.exists()) {
+                Bitmap muteBitmap = BitmapFactory.decodeFile(f.getAbsolutePath());
+                Bitmap bitmap = muteBitmap.copy(Bitmap.Config.ARGB_8888, true);
+                int w = muteBitmap.getWidth();
+                Bitmap roundBitmap = ImageConvert.getRoundedCroppedBitmap(bitmap, w);
+                Canvas canvas = new Canvas(roundBitmap);
+                canvas.drawBitmap(roundBitmap, 0, 0, null);
+                photo.setImageBitmap(roundBitmap);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CropImageActivity.class);
+                intent.putExtra("ChildId", data.get(position).getId());
+                mContext.startActivity(intent);
             }
         });
+
         return view;
     }
 

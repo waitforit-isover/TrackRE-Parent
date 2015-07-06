@@ -2,12 +2,12 @@ package com.sevenre.trackre.parent.datatypes;
 
 public class Child {
 
-    String firstName, lastName, school;
-    boolean isDetailView = false;
+    String firstName, lastName, school, id;
 
     public Child(){}
 
-    public Child(String firstName, String lastName, String school) {
+    public Child(String id, String firstName, String lastName, String school) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.school = school;
@@ -25,11 +25,11 @@ public class Child {
         return school;
     }
 
-    public boolean isDetailView() {
-        return isDetailView;
+    public String getId() {
+        return id;
     }
 
-    public void setIsDetailView(boolean isDetailView) {
-        this.isDetailView = isDetailView;
+    public void setId(String id) {
+        this.id = id;
     }
 }

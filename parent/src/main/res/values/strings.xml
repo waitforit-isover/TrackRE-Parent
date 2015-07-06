@@ -37,15 +37,19 @@
     <string name="continue_">Continue</string>
     <string name="re_password">Retype Password</string>
     <string name="mobile_no">Mobile No</string>
+    <string name="routes">Routes</string>
     <string name="forget_password">Forget Password?</string>
     <string name="login_text">Please enter your mobile number registered with school</string>
     <string name="simply_track_message">For security purpose all information can not be viewed!</string>
+    <string name="register_new_number_text">Enter new mobile number to be linked with your account</string>
     <string name="register_1">Step 1/3</string>
     <string name="register_2">Step 2/3</string>
     <string name="register_3">Step 3/3</string>
     <string name="school_code">School Code</string>
     <string name="verification_code">Verification Code</string>
     <string name="name">Full Name</string>
+    <string name="enter_new_number">Enter New Mobile No.</string>
+    <string name="register_new_number">Register Number</string>
 
     <!-- GCM -->
     <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
@@ -58,5 +62,12 @@
     <!-- Messages -->
     <string name="login_wrong_password">Wrong password</string>
     <string name="login_authenticating_user">Authenticating user</string>
+    <string name="title_activity_crop_image">Crop Image</string>
 
+    <!-- Crop Image -->
+    <string-array name="showGuidelinesArray">
+        <item>Guidelines=Off</item>
+        <item>Guidelines=On Touch</item>
+        <item>Guidelines=On</item>
+    </string-array>
 </resources>

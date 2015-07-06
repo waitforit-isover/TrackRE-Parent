@@ -1,1 +1,1 @@
-include ':library', ':sample', ':parent', ':backend-gcm'
+include ':library', ':sample', ':parent'
