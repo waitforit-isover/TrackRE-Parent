@@ -42,7 +42,7 @@ public class ListSwipeAdapter extends BaseSwipeAdapter {
     @Override
     public View generateView(final int position, ViewGroup parent) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.listview_item, null);
-        SwipeLayout swipeLayout = (SwipeLayout)v.findViewById(getSwipeLayoutResourceId(position));
+        final SwipeLayout swipeLayout = (SwipeLayout)v.findViewById(getSwipeLayoutResourceId(position));
         swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
             public void onOpen(SwipeLayout layout) {
@@ -52,7 +52,7 @@ public class ListSwipeAdapter extends BaseSwipeAdapter {
         swipeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "On click", Toast.LENGTH_SHORT).show();
+
             }
         });
 //        swipeLayout.setOnDoubleClickListener(new SwipeLayout.DoubleClickListener() {
@@ -64,6 +64,7 @@ public class ListSwipeAdapter extends BaseSwipeAdapter {
         v.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                swipeLayout.close();
                 data.remove(position);
                 notifyDataSetChanged();
             }

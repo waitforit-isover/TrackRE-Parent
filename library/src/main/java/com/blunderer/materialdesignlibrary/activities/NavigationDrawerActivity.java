@@ -229,7 +229,7 @@ public abstract class NavigationDrawerActivity extends AActivity implements Navi
             isSavedInstanceState = true;
             fragmentPosition = savedInstanceState.getInt("current_fragment_position", 0);
         } else
-            fragmentPosition = defaultNavigationDrawerItemSelectedPosition();
+            fragmentPosition = 0;//defaultNavigationDrawerItemSelectedPosition();
 
         replaceTopItems(getNavigationDrawerTopHandler());
         replaceBottomItems(getNavigationDrawerBottomHandler());
@@ -379,8 +379,7 @@ public abstract class NavigationDrawerActivity extends AActivity implements Navi
             }
             mAccountsLayout.setListView(mTopListView);
             mAccountsLayout.setListViewAdapter(mListTopAdapter);
-            mAccountsLayout.setAccounts(mNavigationDrawerAccountsHandler
-                    .getNavigationDrawerAccounts());
+            mAccountsLayout.setAccounts(mNavigationDrawerAccountsHandler.getNavigationDrawerAccounts());
             mAccountsLayout.setOnAccountChangeListener(this);
             if (getNavigationDrawerAccountsMenuHandler() != null) {
                 mAccountsLayout.setNavigationDrawerAccountsMenuItems(

@@ -23,6 +23,8 @@ import com.sevenre.trackre.parent.fragment.SimplyTrackVerificationFragment;
 
 import com.sevenre.trackre.parent.R;
 
+import java.util.Calendar;
+
 public class MainActivity extends com.blunderer.materialdesignlibrary.activities.NavigationDrawerActivity {
 
     private SnackBar mSnackBar;
@@ -34,30 +36,43 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
 
     @Override
     public NavigationDrawerAccountsHandler getNavigationDrawerAccountsHandler() {
+        int wallpaper;
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        switch (hour) {
+            case 5:case 6:case 7:
+            case 8:case 9:case 10:case 11:
+                wallpaper = R.drawable.morning_wallpaper;
+                break;
+            case 12:case 13:case 14:case 15:case 16:
+                wallpaper = R.drawable.afternoon_wallpaper;
+                break;
+            case 17:case 18:case 19:case 20:
+                wallpaper = R.drawable.evening_wallpaper;
+                break;
+            default:
+                wallpaper = R.drawable.night_wallpaper;
+                break;
+        }
         return new NavigationDrawerAccountsHandler(this)
                 .addAccount("Raj Shah", "90254 74327",
-                        R.drawable.profile1, R.drawable.profile1_background);
+                        R.drawable.profile1, wallpaper);
     }
 
     @Override
-    public NavigationDrawerAccountsMenuHandler getNavigationDrawerAccountsMenuHandler() {
-        return null;
-    }
+    public NavigationDrawerAccountsMenuHandler getNavigationDrawerAccountsMenuHandler() {return null;}
 
     @Override
-    public void onNavigationDrawerAccountChange(Account account) {
-
-    }
+    public void onNavigationDrawerAccountChange(Account account) {    }
 
     @Override
     public NavigationDrawerTopHandler getNavigationDrawerTopHandler() {
-
         return new NavigationDrawerTopHandler(this)
                 .addItem(R.string.home, Iconify.IconValue.fa_home, new HomeFragment())
                 .addItem(R.string.notification, Iconify.IconValue.fa_bell_o, new NotificationFragment())
                 .addItem(R.string.routes, Iconify.IconValue.fa_road, new ExploreRoutesFragment())
                 .addItem(R.string.simply_track, Iconify.IconValue.fa_map_marker,new SimplyTrackVerificationFragment())
-                .addItem("Set Up", new SetUpChildStopFragment())
+                .addItem(R.string.set_up, Iconify.IconValue.fa_cogs, new SetUpChildStopFragment())
                 .addItem(R.string.add_phone_no, Iconify.IconValue.fa_phone, new AddMobileFragment())
                 .addItem(R.string.logout, Iconify.IconValue.fa_unlock, new LogoutFragment());
 

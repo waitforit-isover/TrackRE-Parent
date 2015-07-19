@@ -21,9 +21,7 @@ public class NavigationDrawerAccountsHandler {
     }
 
     public NavigationDrawerAccountsHandler addAccount(String title,
-                                                      String description,
-                                                      int pictureResource,
-                                                      int backgroundResource) {
+              String description, int pictureResource, int backgroundResource) {
         Account item = new Account();
         item.setTitle(title);
         item.setDescription(description);
@@ -34,9 +32,7 @@ public class NavigationDrawerAccountsHandler {
     }
 
     public NavigationDrawerAccountsHandler addAccount(String title,
-                                                      String description,
-                                                      Drawable picture,
-                                                      int backgroundResource) {
+          String description, Drawable picture, int backgroundResource) {
         Account item = new Account();
         item.setTitle(title);
         item.setDescription(description);
@@ -47,9 +43,7 @@ public class NavigationDrawerAccountsHandler {
     }
 
     public NavigationDrawerAccountsHandler addAccount(String title,
-                                                      String description,
-                                                      Drawable picture,
-                                                      Drawable background) {
+          String description, Drawable picture, Drawable background) {
         Account item = new Account();
         item.setTitle(title);
         item.setDescription(description);
@@ -67,14 +61,8 @@ public class NavigationDrawerAccountsHandler {
         return mUseSmallAccountsLayout;
     }
 
-    /**
-     * Enables the Small Accounts Layout. Only the current account will be shown.
-     *
-     * @return The NavigationDrawerAccountsHandler.
-     */
     public NavigationDrawerAccountsHandler enableSmallAccountsLayout() {
         mUseSmallAccountsLayout = true;
-
         return this;
     }
 

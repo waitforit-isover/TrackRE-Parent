@@ -24,8 +24,7 @@ public abstract class ViewPagerWithTabsFragment extends Fragment
     protected PagerSlidingTabStrip mViewPagerTabs;
     private List<ViewPagerItem> mViewPagerItems;
 
-    public ViewPagerWithTabsFragment() {
-    }
+    public ViewPagerWithTabsFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,7 @@ public abstract class ViewPagerWithTabsFragment extends Fragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.mdl_fragment_view_pager_with_tabs, container, false);
 
         if (mViewPagerItems != null && mViewPagerItems.size() > 0) {
